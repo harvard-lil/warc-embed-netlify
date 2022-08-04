@@ -1,0 +1,15 @@
+[build]
+  publish = "public/"
+  environment = { NODE_VERSION = "18." }
+
+[[edge_functions]]
+  function = "embed"
+  path = "/embed"
+
+[[edge_functions]]
+  function = "archive-warc-gz"
+  path = "/archive.warc.gz"
+
+[[edge_functions]]
+  function = "archive-wacz"
+  path = "/archive.wacz"

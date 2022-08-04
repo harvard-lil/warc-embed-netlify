@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>WARC.GZ / WACZ HTML Embed</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" value="noindex, nofollow"/>
+
+    <style>
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    </style>
+    
+    <script defer src="/ui.js"></script>
+    <script type="module">
+    //
+    // Don't start playback unless we're in a cross origin <iframe>
+    //
+    let isInIframe = true;
+    let isCrossOrigin = true;
+
+    try {
+      if (parent.window.location === window.location) {
+        isInIframe = false;
+      }
+
+      if (parent.window.location.host === window.location.host) {
+        isCrossOrigin = false;
+      }
+    }
+    catch(err) { // If we don't have access to `parent.window.x`, we're likely ok.
+      isInIframe = true;
+      isCrossOrigin = true;
+    }
+
+    if (!isInIframe || !isCrossOrigin) {
+      throw new Error("This page should be embedded in a cross origin iframe.");
+    }
+
+    //
+    // Inject `<replay-web-page>`
+    //
+    const replay = document.createElement("replay-web-page");
+    replay.setAttribute("source", "/archive.{{format}}?archive-url={{archive-url}}&original-url={{original-url}}");
+    replay.setAttribute("replayBase", "/");
+    replay.setAttribute("url", "{{original-url}}");
+    replay.setAttribute("embed", "replayonly");
+
+    // `noWebWorker` for Safari < 16
+    if (window.GestureEvent !== undefined && window.SharedWorker === undefined){
+      replay.setAttribute("noWebWorker", "");
+    }
+
+    document.querySelector("body").appendChild(replay);
+    </script>
+  </head>
+
+  <body>
+  </body>
+
+</html>
