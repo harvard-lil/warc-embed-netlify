@@ -5,5 +5,5 @@
  */
 export default [
   "warcembed-demo.s3.amazonaws.com",
-  "warc-storage-temporay.netlify.app"
+  "warc-storage-temporary.netlify.app"
 ];
