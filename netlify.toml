@@ -7,9 +7,9 @@
   path = "/embed"
 
 [[edge_functions]]
-  function = "archive-warc-gz"
+  function = "archive"
   path = "/archive.warc.gz"
 
 [[edge_functions]]
-  function = "archive-wacz"
+  function = "archive"
   path = "/archive.wacz"
