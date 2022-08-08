@@ -77,7 +77,7 @@ export default async (request) => {
   }
   else {
     returnHeaders["content-type"] = "application/x-gzip";
-    returnHeaders["content-disposition"] = `attachment; filename="archive.wacz"`;
+    returnHeaders["content-disposition"] = `attachment; filename="archive.warc.gz"`;
   }
 
   //
