@@ -26,6 +26,7 @@
     //
     let isInIframe = true;
     let isCrossOrigin = true;
+    let isLocalhost = window.location.host.startsWith("localhost:");
 
     try {
       if (parent.window.location === window.location) {
@@ -41,7 +42,7 @@
       isCrossOrigin = true;
     }
 
-    if (!isInIframe || !isCrossOrigin) {
+    if (!isLocalhost && (!isInIframe || !isCrossOrigin)) {
       throw new Error("This page should be embedded in a cross origin iframe.");
     }
 
@@ -53,6 +54,7 @@
     replay.setAttribute("replayBase", "/");
     replay.setAttribute("url", "{{original-url}}");
     replay.setAttribute("embed", "replayonly");
+    replay.setAttribute("noCache", "");
 
     // `noWebWorker` for Safari < 16
     if (window.GestureEvent !== undefined && window.SharedWorker === undefined){
