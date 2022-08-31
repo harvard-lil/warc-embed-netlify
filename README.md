@@ -3,9 +3,7 @@ Experimental proxy and wrapper for safely embedding Web Archives (`.warc.gz`, `.
 
 This particular implementation uses [Netlify and its Edge Functions](https://docs.netlify.com/netlify-labs/experimental-features/edge-functions/) as its backbone. 
 
-Future implementations under consideration: self-hosted _(Python + Nginx)_, [Cloudflare Workers](https://workers.cloudflare.com/) ...
-
-🖼️ [Live Demo](https://warcembed-demo.lil.tools)
+See also: [`warc-embed`](https://github.com/harvard-lil/warc-embed) _(Self-hosted + NGINX version)_
 
 ---
 
